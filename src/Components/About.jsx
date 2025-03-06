@@ -1,33 +1,25 @@
-// let Links = [
-//     {lname:"Home", link:"/", number:"01. "},
-//     {lname:"About", link:"/", number:"02. "},
-//     {lname:"Services", link:"/", number:"03. "},
-//     {lname:"Projects", link:"/", number:"04. "},
-//     {lname:"Contact", link:"/", number:"05. "},
-// ]
-
-import Img1 from "../assets/images/one.jpg"
+import { FaArrowDown } from "react-icons/fa6";
 
 const Heading = [
-    {id: 1, fheading:"About Me", number:"02. "},
+    {id: 1, fheading:"About Me"},
 ]
 
 const Description = [
     {
         id:1,
-        info: "1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius sit laboriosam possimus tempore, alias nulla ex quos laudantium sequi aliquid perferendis voluptate dicta, architecto illum ipsum impedit. Amet delectus omnis doloremque dolor quidem sapiente atque."
+        info: "I am a Frontend Engineer that believes in writing exceptional code that is visually appealing, highly functional and user-friendly."
     },
     {
         id:2,
-        info: "2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore cumque necessitatibus, maiores soluta unde dolor deserunt earum sint repudiandae rem nobis blanditiis quod consectetur saepe."
+        info: "I'm focused on creating responsive web applications, meeting deadlines, delivering exceptional results and exceeding expectations. I also focus on the accessibility, scalability and speed of every website I create."
     },
     {
         id:3,
-        info: "3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit dolorum delectus accusamus quas qui incidunt obcaecati."
+        info: "With a constant eagerness to learn and stay updated with the latest technologies, I continually strive to challange my abilities and improve my skills with each project I take on."
     },
     {
         id:4,
-        info: "4 Lorem ipsum dolor sit amet consectetur adipisicing."
+        info: "Here are some technologies I work with:"
     },
 ]
 
@@ -60,63 +52,78 @@ const Stack2 = [
 const Image = [
     {
         id:1,
-        pic: Img1
+        // pic: Img1
     },
 ]
 
-const About = () => {
+const About = ({ aboutRef }) => {
     return (
-        <div className="bg-bluee">
-            <div className="px-7 pt-12 md:pt-16 md:px-10 lg:pt-20" data-aos="fade-up">
+        <div ref={aboutRef} id="about" className="bg-blackone">
+            <div className="px-7 pt-12 md:pt-16 md:px-10 lg:px-24 lg:pt-20 xl:px-44">
                 <div className="pb-4 xl:pb-10">
                     {Heading.map((data) => (
-                        <div key={data.id} className="text-center">
-                            <h2 className="text-3xl text-white"><span className="text-silver">{data.number}</span> {data.fheading}</h2>
+                        <div key={data.id} className="font-bold">
+                            <h2 className="text-3xl text-white sm:text-4xl"> {data.fheading}</h2>
                         </div>
                     ))}
                 </div>
-                <div className="md:flex md:justify-between md:gap-10 xl:gap-12">
-                    <div>
+                <div className="md:flex md:justify-evenly md:gap-10 xl:gap-12">
+                    <div className="md:w-[100%]" data-aos="fade-right">
                         {Image.map((data3) => (
                             <div key={data3.id}>
                                 <div>
-                                    <img src={data3.pic} alt="" className="w-[60%] h-[60%] block mx-auto rounded-lg md:rounded-xl md:w-[100%] md:h-[100%]" />
+                                    <img src="https://res.cloudinary.com/dlcoacdkb/image/upload/v1741245924/IMG_8795_phc3sl.jpg" alt="" className="w-[60%] h-[60%] block w-auto rounded-lg md:rounded-xl md:w-[100%] md:h-[100%]" />
                                     {/* <img src={data3.pic} alt="" className="w-[60%] h-[60%] block mx-auto rounded-lg md:rounded-xl md:w-[100%] md:h-[100%]" /> */}
                                 </div>
                             </div>
                         ))}
                     </div>
-                    {/* <div className="pt-5 md:pt-0 md:w-full xl:w-[60%]"> */}
-                    {/* block mx-auto pt-5 md:w-full md:pt-12 md:items-center lg:pt-28 xl:pt-36 xl:w-[60%]" */}
 
-                    <div className="block mx-auto pt-4 text-white md:w-full md:items-center xl:w-[60%] xl:pt-10">
-
-                        {Description.map((data2) => (
-                            <div key={data2.id} className="pb-3 xl:pt-4">
-                                <p>{data2.info}</p>
+                    <div className="block mx-auto pt-4 text-white md:flex md:pt-0 md:w-full md:items-center xl:w-[80%] xl:pt-0" data-aos="fade-left">
+                        <div>
+                            {Description.map((data2) => (
+                                <div key={data2.id} className="pb-3 xl:pt-4">
+                                    <p>{data2.info}</p>
+                                </div>
+                            ))}
+                            <div className="flex gap-9 ml-7 sm:ml-10 sm:gap-20">
+                                <div>
+                                    {Stack.map((data4) => (
+                                        <div key={data4.id}>
+                                            <ul>
+                                                <li className="pb-1 list-disc xl:pb-3">{data4.language}</li>
+                                            </ul>
+                                        </div>
+                                    ))}
+                                </div>
+                                <div>
+                                    {Stack2.map((data5) => (
+                                        <div key={data5.id}>
+                                            <ul>
+                                                <li className="pb-1 list-disc xl:pb-3">{data5.language}</li>
+                                            </ul>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
-                        ))}
-                        <div className="flex gap-9 ml-7 sm:ml-10 sm:gap-20">
-                            <div>
-                                {Stack.map((data4) => (
-                                    <div key={data4.id}>
-                                        <ul>
-                                            <li className="pb-1 list-disc xl:pb-3">{data4.language}</li>
-                                        </ul>
-                                    </div>
-                                ))}
-                            </div>
-                            <div>
-                                {Stack2.map((data5) => (
-                                    <div key={data5.id}>
-                                        <ul>
-                                            <li className="pb-1 list-disc xl:pb-3">{data5.language}</li>
-                                        </ul>
-                                    </div>
-                                ))}
+                            <div className="pt-2">
+                                <button className="bg-milkey flex justify-center items-center w-full gap-2 px-3 py-2 rounded font-bold border-2 border-milkey hover:bg-transparent duration-500 sm:w-60 lg:w-40"
+                                 onClick={() => {
+                                    const fileUrl = "https://docs.google.com/document/d/1cVY4RJc82RZ0GtBoGG5LuUjOY5_iOnUB2ffFJqAmoDk/export?format=pdf"; // Replace with actual CV URL
+                                    const a = document.createElement("a");
+                                    // https://docs.google.com/document/d/1cVY4RJc82RZ0GtBoGG5LuUjOY5_iOnUB2ffFJqAmoDk/edit?usp=sharing
+                                    a.href = "https://docs.google.com/document/d/1cVY4RJc82RZ0GtBoGG5LuUjOY5_iOnUB2ffFJqAmoDk/export?format=pdf";
+                                    a.download = "My_CV.pdf"; // Set desired file name
+                                    document.body.appendChild(a);
+                                    a.click();
+                                    document.body.removeChild(a);
+                                }}
+                                >
+                                    <FaArrowDown />
+                                    Download CV
+                                </button>
                             </div>
                         </div>
-                        
                     </div>
                 </div>
             </div>

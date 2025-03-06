@@ -1,35 +1,39 @@
 import { useState } from "react";
 
-
-const Navbar = () => {
+const Navbar = ({ scrollToSection, activeSection }) => {
     let Links = [
-        {lname:"Home", link:"/", number:"01. "},
-        {lname:"About", link:"/", number:"02. "},
-        {lname:"Services", link:"/", number:"03. "},
-        {lname:"Projects", link:"/", number:"04. "},
-        {lname:"Contact", link:"/", number:"05. "},
+        {lname:"Home", link:"sectiononeRef", number:"01. ", id: "sectionone"},
+        {lname:"About", link:"aboutRef", number:"02. ", id: "about"},
+        {lname:"Services", link:"servicesRef", number:"03. ", id: "services"},
+        {lname:"Projects", link:"projectsRef", number:"04. ", id: "projects"},
+        {lname:"Contact", link:"contactRef", number:"05. ", id: "contact"},
     ]
 
     let [open, setOpen] = useState(false);
 
+    const handleLinkClick = (ref) => {
+        scrollToSection(ref); // Scroll to the section
+        setOpen(false); // Close the navbar after clicking a link
+    };
+
     return (
-        <div className="shadow-md w-full sticky top-0 left-0">
-            <div className="md:flex items-center justify-between bg-bluee py-4 px-7 md:px-10">
-                <div className="font-bold text-2xl cursor-pointer flex items-center text-white">
-                    {/* <a href=""> */}
-                        <span className="text-3xl text-silver mr-1 pt-2">
+        <div className="shadow-md w-full sticky top-0 left-0 z-40">
+            <div className="md:flex items-center justify-between bg-blackone py-4 px-7 md:px-10 lg:px-24 xl:px-44">
+                <div className="font-bold text-lg sm:text-2xl cursor-pointer flex items-center text-white">
+                    <a href="/" className="flex items-center">
+                        <span className="text-3xl text-milkey mr-1 pt-2">
                             <ion-icon name="logo-ionic"></ion-icon>
                         </span>
                         Sifon Emmanuel
-                    {/* </a> */}
+                    </a>
                 </div>
                 <div onClick={() => setOpen(!open)} className="text-3xl text-white absolute right-8 top-6 cursor-pointer md:hidden">
                     <ion-icon name={open ? 'close':'menu'}></ion-icon>
                 </div>
-                <ul className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 text-center bg-bluee transition-all duration-500 ease-in ${open ? 'top-20 opacity-100':'top-[-490px]'} md:opacity-100 opacity-0`}>
+                <ul className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 text-center bg-blackone transition-all duration-500 ease-in ${open ? 'top-20 opacity-100':'top-[-490px]'} md:opacity-100 opacity-0`}>
                     {Links.map((link) => (
-                            <li key={link.lname} className="md:ml-1 lg:ml-8 text-xl md:my-0 my-7">
-                                <a href={link.link} className="text-white hover:text-silver duration-500"><span className="text-silver">{link.number}</span>{link.lname}</a>
+                            <li key={link.lname} className="md:ml-6 lg:ml-8 text-xl md:my-0 my-7">
+                                <a onClick={() => handleLinkClick(link.link)} className={`font-bold duration-500 cursor-pointer ${ activeSection === link.id ? "text-milkey" : "text-white"} hover:text-milkey`}>{link.lname}</a>
                             </li>
                         ))
                     }

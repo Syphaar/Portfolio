@@ -1,7 +1,6 @@
 import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa6";
-import { TiLocationArrow } from "react-icons/ti";
 import { HiHandThumbUp } from "react-icons/hi2";
-
+import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 
 const Heading = [
     {id: 1, fheading:"Contact", number:"05. "},
@@ -21,30 +20,57 @@ const ContactInfo2 = [
     }
 ]
 
+const socialLinks = [
+    {
+        id: 1,
+        profile: "https://github.com/Syphaar",
+        lname: "Github",
+        icon1: <FaGithub />,
+        icon2: <FaArrowUpRightFromSquare />
+    },
+    {
+        id: 2,
+        profile: "https://www.linkedin.com/in/sifon-emmanuel-180bb0344/",
+        lname: "Linkedin",
+        icon1: <FaLinkedin />,
+        icon2: <FaArrowUpRightFromSquare />
 
-const Contactme = () => {
+    },
+]
+
+const socialLinks2 = [
+    {
+        id: 2,
+        profile: "https://twitter.com/Sy_phaar",
+        lname: "Twitter",
+        icon1: <FaTwitter />,
+        icon2: <FaArrowUpRightFromSquare />
+    }
+]
+
+const Contactme = ({ contactRef }) => {
     return (
-        <div className="bg-bluee">
-            <div className="px-7 pt-12 pb-12 md:pt-16 md:px-10 lg:pt-20">
+        <div ref={contactRef} id="contact" className="bg-blackone">
+            <div className="px-7 pt-12 pb-20 md:pt-16 md:px-10 lg:px-24 lg:pt-20 xl:px-44">
                 <div className="pb-4 xl:pb-10">
                     {Heading.map((data) => (
-                        <div key={data.id} className="text-center">
-                            <h2 className="text-3xl text-white"><span className="text-silver">{data.number}</span> {data.fheading}</h2>
+                        <div key={data.id} className="font-bold">
+                            <h2 className="text-3xl text-white sm:text-4xl">{data.fheading}</h2>
                         </div>
                     ))}
                 </div>
                 <div>
-                    <div className="md:flex md:gap-5">
-                        <div className="pb-3 text-white">
+                    <div className="md:flex md:justify-between md:gap-5">
+                        <div className="pb-3 text-white" data-aos="fade-right">
                             <div className="pb-3 sm:flex justify-between gap-4 md:block">
                                 <div className="pb-3 sm:w-[50%] md:w-[100%]">
                                     {ContactInfo.map((msg) => (
-                                        <div key={msg.id} className="flex">
-                                            <p>{msg.info} </p><span className="text-2xl text-silver"><HiHandThumbUp /></span>
+                                        <div key={msg.id} className="">
+                                            <p className="inline-block md:flex">{msg.info} <span className="text-2xl text-milkey"><HiHandThumbUp /></span></p>
                                         </div>
                                     ))}
                                 </div>
-                                <div className="sm:w-[50%] md:w-[100%]">
+                                <div className="sm:w-[50%] md:w-[80%] lg:w-[90%] xl:w-[100%]">
                                     {ContactInfo2.map((msg2) => (
                                         <div key={msg2.id}>
                                             <p>{msg2.info}</p>
@@ -52,44 +78,49 @@ const Contactme = () => {
                                     ))}
                                 </div>
                             </div>
-                            <div className="py-3 md:pt-6 md:pb-4 xl:pb-6 xl:w-[60%]">
-                                <div className="flex justify-center gap-4 text-2xl md:gap-6 md:justify-start md:text-2xl">
-                                    <a href="http://" target="_blank" rel="noopener noreferrer" className="hover:text-silver duration-300 cursor-pointer">
-                                        <FaLinkedin />
-                                    </a>
-                                    <a href="http://" target="_blank" rel="noopener noreferrer" className="hover:text-silver duration-300 cursor-pointer">
-                                        <FaTwitter />
-                                    </a>
-                                    <a href="http://" target="_blank" rel="noopener noreferrer" className="hover:text-silver duration-300 cursor-pointer">
-                                        <FaGithub />
-                                    </a>
-                                </div>
+                            <div className="">
+                                {/* <div className=""> */}
+                                    <div className="pt-2">
+                                        {/* <a href="mailto:sifonemmanuel123@gmail.com?subject=Inquiry&body=Hello,%20I%20am%20interested%20in%20your%20services."> */}
+                                        <a href="mailto:sifonemmanuel123@gmail.com">
+                                            <button className="bg-milkey flex justify-center items-center w-full px-3 py-3 rounded text-xl font-bold border-2 border-milkey hover:bg-transparent duration-300 md:w-60 lg:px-3 lg:py-2 lg:w-40">
+                                                {/* <FaArrowDown /> */}
+                                                Contact Me
+                                            </button>
+                                        </a>
+                                    </div>
+                                {/* </div> */}
                             </div>
                         </div>
-                        <div className=" text-center px-4 py-8 md:w-[100%] lg:w-[68%] rounded-lg border-2 border-white xl:px-24 xl:py-11">
-                            <form action="">
-                                <div className="pb-3 md:flex md:gap-4 w-[100%] lg:justify-between">
-                                    <div className="pb-3 md:pb-5">
-                                        <input type="text" name="name" placeholder="Full Name" className="text-white w-full sm:w-[60%] px-2 py-1 rounded border-2 border-white bg-transparent md:w-[100%] lg:py-3" required />
-                                    </div>
-                                    <div className="pb-3 md:pb-5">
-                                        <input type="email" name="email" placeholder="Enter Your Email" className="text-white w-full sm:w-[60%] px-2 py-1 rounded border-2 border-white bg-transparent md:w-[100%] lg:py-3" required />
-                                    </div>
-                                </div>
-                                <div className="pb-3">
-                                    <textarea name="textarea" className="text-white w-full sm:w-[60%] px-2 py-1 rounded border-2 border-white resize-none bg-transparent md:w-[100%] lg:pb-10 lg:text-center xl:pb-24" required></textarea>
-                                </div>
-                                <div className="flex justify-center">
-                                    {/* <TiLocationArrow /> */}
-                                    <button className="">
-                                        <div className="flex text-white font-bold border-2 px-3 py-2 rounded hover:bg-white hover:text-black duration-300">
-                                            <TiLocationArrow className="text-2xl"/>
-                                            <p>Send Message</p>
+                        <div>
+                            <div className="text-white justify-center gap-4 pt-7 sm:text-xl md:gap-6 md:justify-start md:text-2xl" data-aos="fade-left">
+                                <div className="flex justify-center gap-8 md:block">
+                                    {socialLinks.map((socials1) => (
+                                        <div key={socials1.id}>
+                                            <div className="flex justify-evenly md:block">
+                                                <p className="flex justify-start items-center gap-1 pb-3 sm:gap-2 md:gap-3">
+                                                    {socials1.icon1}
+                                                    {socials1.lname}
+                                                    <a href={socials1.profile} target="_blank" rel="noopener noreferrer" className="hover:text-milkey duration-300 cursor-pointer">
+                                                        {socials1.icon2}
+                                                    </a>
+                                                </p>
+                                            </div>
                                         </div>
-                                    </button>
-                                    {/* <input type="submit" value="Send Message" className="text-white bg-transparent border-2 rounded px-3 py-2 cursor-pointer" /> */}
+                                    ))}
                                 </div>
-                            </form>
+                                {socialLinks2.map((social2) => (
+                                    <div key={social2.id}>
+                                        <p className="flex justify-center items-center pt-2 gap-1 pb-3 sm:gap-2 md:gap-3 md:justify-start">                                        
+                                            {social2.icon1}
+                                            {social2.lname}
+                                            <a href={social2.profile} target="_blank" rel="noopener noreferrer" className="hover:text-milkey duration-300 cursor-pointer">
+                                                {social2.icon2}
+                                            </a>
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
