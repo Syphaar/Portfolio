@@ -1,3 +1,5 @@
+import './App.css'
+
 import { useRef } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";

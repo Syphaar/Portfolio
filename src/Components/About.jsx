@@ -58,7 +58,7 @@ const Image = [
 
 const About = ({ aboutRef }) => {
     return (
-        <div ref={aboutRef} id="about" className="bg-blackone">
+        <div ref={aboutRef} id="about" className="bg-blackone overflow-hidden">
             <div className="px-7 pt-12 md:pt-16 md:px-10 lg:px-24 lg:pt-20 xl:px-44">
                 <div className="pb-4 xl:pb-10">
                     {Heading.map((data) => (
@@ -72,7 +72,7 @@ const About = ({ aboutRef }) => {
                         {Image.map((data3) => (
                             <div key={data3.id}>
                                 <div>
-                                    <img src="https://res.cloudinary.com/dlcoacdkb/image/upload/v1741245924/IMG_8795_phc3sl.jpg" alt="" className="w-[60%] h-[60%] block w-auto rounded-lg md:rounded-xl md:w-[100%] md:h-[100%]" />
+                                    <img src="https://res.cloudinary.com/dlcoacdkb/image/upload/v1741245924/IMG_8795_phc3sl.jpg" alt="" className="w-full h-auto block rounded-lg md:rounded-xl md:w-[100%] md:h-[100%]" />
                                     {/* <img src={data3.pic} alt="" className="w-[60%] h-[60%] block mx-auto rounded-lg md:rounded-xl md:w-[100%] md:h-[100%]" /> */}
                                 </div>
                             </div>

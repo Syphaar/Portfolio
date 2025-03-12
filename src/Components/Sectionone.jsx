@@ -28,7 +28,7 @@ const Info = [
 const Sectionone = ({ sectiononeRef }) => {
     return (
         <div ref={sectiononeRef} id="sectionone">
-            <div className="flex justify-center items-center w-[full] h-[100vh] bg-[url('https://res.cloudinary.com/dlcoacdkb/image/upload/v1741245920/background_dociug.jpg')] bg-cover bg-fixed bg-no-repeat bg-center">
+            <div className="flex justify-center items-center w-full min-h-screen bg-[url('https://res.cloudinary.com/dlcoacdkb/image/upload/v1741245920/background_dociug.jpg')] bg-cover bg-fixed bg-no-repeat bg-center">
                 <div className="pb-12 xl:pb-0">
                     <div className="text-center text-white px-10 pb-10 md:pb-20 xl:pb-14">
                         <p className="text-4xl sm:text-5xl xl:text-6xl 2xl:text-7xl">Hi, I am <span className="">Sifon Emmanuel</span></p>

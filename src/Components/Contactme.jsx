@@ -50,7 +50,7 @@ const socialLinks2 = [
 
 const Contactme = ({ contactRef }) => {
     return (
-        <div ref={contactRef} id="contact" className="bg-blackone">
+        <div ref={contactRef} id="contact" className="bg-blackone overflow-hidden">
             <div className="px-7 pt-12 pb-20 md:pt-16 md:px-10 lg:px-24 lg:pt-20 xl:px-44">
                 <div className="pb-4 xl:pb-10">
                     {Heading.map((data) => (
