@@ -1,4 +1,5 @@
 import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa6";
+import PropTypes from "prop-types"; // Import prop-types
 
 const socialLinks = [
     {
@@ -73,6 +74,14 @@ const Sectionone = ({ sectiononeRef }) => {
             </div>
         </div>
     );
-}
+};
+
+// Define prop types
+Sectionone.propTypes = {
+    sectiononeRef: PropTypes.oneOfType([
+        PropTypes.func,
+        PropTypes.shape({ current: PropTypes.any }),
+    ]),
+};
  
 export default Sectionone;

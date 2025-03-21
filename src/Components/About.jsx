@@ -1,4 +1,5 @@
 import { FaArrowDown } from "react-icons/fa6";
+import PropTypes from "prop-types"; // Import prop-types
 
 const Heading = [
     {id: 1, fheading:"About Me"},
@@ -109,11 +110,12 @@ const About = ({ aboutRef }) => {
                             <div className="pt-2">
                                 <button className="bg-milkey flex justify-center items-center w-full gap-2 px-3 py-2 rounded font-bold border-2 border-milkey hover:bg-transparent duration-500 sm:w-60 lg:w-40"
                                  onClick={() => {
-                                    const fileUrl = "https://docs.google.com/document/d/1cVY4RJc82RZ0GtBoGG5LuUjOY5_iOnUB2ffFJqAmoDk/export?format=pdf"; // Replace with actual CV URL
+                                    const fileUrl = "https://docs.google.com/document/d/1cVY4RJc82RZ0GtBoGG5LuUjOY5_iOnUB2ffFJqAmoDk/export?format=pdf";
+                                    const fileName = "My_Custom_CV.pdf"; // Change this to your desired filename
+
                                     const a = document.createElement("a");
-                                    // https://docs.google.com/document/d/1cVY4RJc82RZ0GtBoGG5LuUjOY5_iOnUB2ffFJqAmoDk/edit?usp=sharing
-                                    a.href = "https://docs.google.com/document/d/1cVY4RJc82RZ0GtBoGG5LuUjOY5_iOnUB2ffFJqAmoDk/export?format=pdf";
-                                    a.download = "My_CV.pdf"; // Set desired file name
+                                    a.href = fileUrl;
+                                    a.setAttribute("download", fileName); // ✅ Correct way to rename the file
                                     document.body.appendChild(a);
                                     a.click();
                                     document.body.removeChild(a);
@@ -129,6 +131,14 @@ const About = ({ aboutRef }) => {
             </div>
         </div>
     );
-}
- 
+};
+
+// Define prop types
+About.propTypes = {
+    aboutRef: PropTypes.oneOfType([
+        PropTypes.func,
+        PropTypes.shape({ current: PropTypes.any }),
+    ]),
+};
+
 export default About;

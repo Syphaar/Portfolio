@@ -1,3 +1,5 @@
+import PropTypes from "prop-types"; // Import prop-types
+
 const Heading = [
     {id: 1, fheading:"Services"},
 ]
@@ -6,12 +8,12 @@ const Details = [
     {
         id: 1,
         heading: "Front-end development",
-        information: "I Specialize in transforming designs into captivating, responsive, visually compelling and interactive web applications using frameworks like React.js. My approach goes beyond just implementing designs, I focus on usability, accessibility, and cross-browser compatibility to ensure consistency across all devices. I build intuitive interfaces that align with business goals and user needs. Beyond development, I prioritize collaboration, clear communication, and problem-solving to ensure seamless project execution. My goal is to bridge the gap between design and functionality, delivering digital products that not only look great but also perform exceptionally well.",
+        information: "I specialize in turning designs into responsive, interactive web applications using React.js. With a focus on usability, accessibility, and cross-browser compatibility, I ensure a seamless experience across all devices. I prioritize collaboration and problem-solving to create digital products that are both visually compelling and high-performing.",
     },
     {
         id: 2,
         heading: "Performance and Optimization",
-        information: "Speed and performance directly impact user experience, conversion rates, and SEO rankings. A slow website leads to frustrated users and lost opportunities, which is why I focus on optimizing every aspect of the frontend. I implement best practices like code splitting and lazy loading to enhance load times. I also enhance website performance by making animations smoother and customizing CSS, javascript and react so they don't delay page rendering. My development process ensures smooth interactions, fast page speeds and a fluid experience across all devices. I stay updated on the latest perfomance strategies to ensure applications meet modern web standards. My goal is to deliver fast, efficient and a good digital experience that keeps users engaged and businesses ahead of the competition. ",
+        information: "Speed impacts user experience, so I focus on optimizing frontend performance with best practices like lazy loadingnd smooth animations. My goal is to create fast, responsive, and seamless digital experiences that drive engagement and business success. I stay updated on modern web performance strategies to deliver high-speed, efficient applications that keep users engaged.",
     },
 ]
 
@@ -51,6 +53,14 @@ const Services = ({ servicesRef }) => {
             </div>
         </div>
     );
-}
+};
+
+// Define prop types
+Services.propTypes = {
+    servicesRef: PropTypes.oneOfType([
+        PropTypes.func,
+        PropTypes.shape({ current: PropTypes.any }),
+    ]),
+};
  
 export default Services;

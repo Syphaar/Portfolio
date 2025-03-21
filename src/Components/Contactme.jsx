@@ -1,6 +1,7 @@
 import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa6";
 import { HiHandThumbUp } from "react-icons/hi2";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
+import PropTypes from "prop-types"; // Import prop-types
 
 const Heading = [
     {id: 1, fheading:"Contact", number:"05. "},
@@ -127,6 +128,13 @@ const Contactme = ({ contactRef }) => {
             </div>
         </div>
     );
-}
- 
+};
+
+Contactme.propTypes = {
+    contactRef: PropTypes.oneOfType([
+        PropTypes.func,
+        PropTypes.shape({ current: PropTypes.any }),
+    ]),
+};  
+
 export default Contactme;

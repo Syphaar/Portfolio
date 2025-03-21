@@ -1,5 +1,6 @@
 import { BsGlobe } from "react-icons/bs";
 import { FaGithub } from "react-icons/fa";
+import PropTypes from "prop-types"; // Import prop-types
 
 const Heading = [
     {id: 1, fheading:"Projects", number:"04. "},
@@ -108,6 +109,14 @@ const Projects = ({ projectsRef }) => {
             </div>
         </div>
     );
-}
- 
+};
+
+// Define prop types
+Projects.propTypes = {
+    projectsRef: PropTypes.oneOfType([
+        PropTypes.func,
+        PropTypes.shape({ current: PropTypes.any }),
+    ]),
+};
+
 export default Projects;
